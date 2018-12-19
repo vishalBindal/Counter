@@ -7,6 +7,15 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/holo_green_light" />
     <TextView
         android:id="@+id/display"
         android:layout_width="0dp"
@@ -157,6 +166,8 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/increase" />
+
+
 
 
 </android.support.constraint.ConstraintLayout>

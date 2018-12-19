@@ -1,8 +1,13 @@
 package com.example.counter;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -87,9 +92,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void inc(View view){
-        check();
-        count+=increment;
-        countView.setText("" + count);
+        countView.animate()
+                .alpha(0f)
+                .setDuration(70)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        check();
+                        count+=increment;
+                        countView.setText("" + count);
+                        countView.animate()
+                                .alpha(1f)
+                                .setDuration(70)
+                                .setListener(null);
+                    }
+                });
+
+
     }
 
     public void res(View view){
